@@ -1,5 +1,5 @@
 ---
-title: "EDA with Numerical Data"
+title: "KEY - EDA with Numerical Data"
 author: "YOUR NAME"
 editor: visual
 format: 
@@ -104,22 +104,32 @@ glimpse(loan50)
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 4.  From what platform was this data taken?
+
+    This data was taken from Lending Club.
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 5.  What does that platform do?
+
+    Lending Club is an online platform this makes it possible for people to lend to one another.
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 6.  What are the observational units in the `loan50` dataset?
+
+    The observational units are loans given out on Lending Club.
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 7.  How many observations are there?
+
+    There are 50 loans in this data frame.
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 8.  How many variables are there?
+
+    There are 18 variables.
 :::
 
 ***\*\*Important Note: or the rest of this tutorial, you will work with a smaller version of this data set. We'll keep the 50 rows, but select 7 of the 18 variables we started with.***
@@ -145,14 +155,32 @@ We will name a new data frame `loan50_small`. To do so we take the `loan50` data
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  What is the name of the new data frame created in the lines of code above? Type the name EXACTLY how it appears above. (Hint: Copying and pasting is your friend! Also, if you double click on text it will highlight it for you. Give it a try!)
+
+    loan50_small
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  When you are reading code and come across the symbol \|\>, which is called pipe, you should say, "And \_\_\_\_\_\_." *Tip: read the text just below the code chunk above to help you answer this question.*
+
+Then
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 3.  List all of the variables and state whether they are categorical or numerical? Type the names of the variables EXACTLY how they appear in the code above. *Hint: Copying and pasting is your friend!*
+
+`loan_amount` - numerical
+
+`interest_rate`  - numerical
+
+`term`  - numerical
+
+`grade`  - categorical
+
+`state` - categorical
+
+`total_income` - numerical
+
+`homeownership` - numerical
 :::
 
 ## 3: Build a histogram.
@@ -195,20 +223,28 @@ loan50_small |>
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  What is a question that could be explored with the histogram created by the code above?
+
+    What size loans tend to be given out on Lending Club?
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 3.  Describe the shape of the distribution and what that tells you about the loan amounts.
+
+The distribution of loans is skewed to the right, meaning that most loans are less than \$20,000 while a small number of loans are \$30,000 or more.
 :::
 
 ### 3.2: Tasks and Questions
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
-1.  Write a statistical question that could be answered by creating a histogram using the data frame named `loan50_small`. *(use a different variable than the one used in 3.1)*\
+1.  Write a statistical question that could be answered by creating a histogram using the data frame named `loan50_small`. *(use a different variable than the one used in 3.1)*
+
+    What is the typical income of someone taking a loan out on Lending Club?\
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  What is the numerical variable you would need to use to create a histogram to help answer your question. Write the name EXACTLY as it appears in the data frame.
+
+total_income
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
@@ -217,8 +253,8 @@ loan50_small |>
 
 ```{r your first histogram}
 
-NAME_OF_DATA_FRAME |>
-  ggplot(aes(x = NUMERICAL_VARIABLE)) +
+loan50_small |>
+  ggplot(aes(x = total_income)) +
   geom_histogram()
 
 ```
@@ -229,6 +265,8 @@ NAME_OF_DATA_FRAME |>
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 5.  Describe the distribution. Be sure to comment on the shape, center, and spread of the distribution.
+
+The interest rates on Lending Club loans tend to fall below 11%. The median interest appears to be 10%. The distribution in skewed to the right, which means that while many of interest rates are below 11%, there are a few loans that had interest rates of 20 to 28 percent.
 :::
 
 ## 4: Build a density curve.
@@ -241,6 +279,8 @@ NAME_OF_DATA_FRAME |>
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  If you are about to change your visualization from a histogram to a density curve, will you need to change the variable listed on the x-axis?
+
+No, you will not need to change the variable on the x-axis as we are still going to explore the distribution of loan amounts.
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
@@ -248,11 +288,15 @@ NAME_OF_DATA_FRAME |>
 :::
 
 ```{r your first density curve}
-
+loan50_small |>
+  ggplot(aes(x = loan_amount)) +
+  geom_density()
 ```
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 4.  Bonus: True or False - You can create a density curve for a discrete numeric variable. (Explain your answer.)
+
+No. A density curve is continuous and therefore can only be used for numeric variables taht are continuous.
 :::
 
 ## 5: Generate summary statistics to support a histogram and density curve.
@@ -290,7 +334,8 @@ loan50_small |>
     Q_one = quantile(loan_amount, 0.25),
     Q_three = quantile(loan_amount, 0.75),
     minimum_value = min(loan_amount),
-    maximum_value = max(loan_amount)
+    maximum_value = max(loan_amount),
+    number_observations = n()
   )
 ```
 
@@ -301,7 +346,18 @@ loan50_small |>
 :::
 
 ```{r your first summary stats}
-
+loan50_small |>
+  select(total_income) |>
+  summarise(
+    Mean = mean(total_income),
+    Median = median(total_income),
+    SD = sd(total_income),
+    IQR = IQR(total_income),
+    Q_one = quantile(total_income, 0.25),
+    Q_three = quantile(total_income, 0.75),
+    minimum_value = min(total_income),
+    maximum_value = max(total_income)
+  )
 ```
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
@@ -311,11 +367,28 @@ loan50_small |>
 :::
 
 ```{r viz and stats}
+loan50_small |>
+  ggplot(aes(x = total_income)) +
+  geom_histogram()
 
+loan50_small |>
+  select(total_income) |>
+  summarise(
+    Mean = mean(total_income),
+    Median = median(total_income),
+    SD = sd(total_income),
+    IQR = IQR(total_income),
+    Q_one = quantile(total_income, 0.25),
+    Q_three = quantile(total_income, 0.75),
+    minimum_value = min(total_income),
+    maximum_value = max(total_income)
+  )
 ```
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 4.  Describe the distribution of the numerical variable you choose when creating the data visualization. Be sure to comment on the shape, center, and spread of the distribution using statistical vocabulary you have learned in this class and the appropriate statistics you generated.
+
+The distribution of total income for folks getting loans on Lending Club is skewed to the right with total incomes tending to be around \$78,750. The middle 50% of total incomes range from \$60,000 to \$119,000. While 75% of folks getting a loan have incomes less that \$119,000, just 5 people have incomes over \$200,000.
 :::
 
 ## 6: Adjust the histogram to include some data visualization best practices.
@@ -342,10 +415,10 @@ loan50_small |>
   ggplot(aes(x = loan_amount)) +
   geom_histogram() +
   labs(
-    title ="",
-    subtitle = "",
-    x = "",
-    y = ""
+    title ="What size loans to people get at Lending Club?",
+    subtitle = "Sample of 50 loans from Lending Club",
+    x = "Loan Amount ($)",
+    y = "Number of Loans"
   )
 
 ```
@@ -360,6 +433,8 @@ In the code below, you will see that there is NOT a new layer. We added an **ele
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  What bin width do you think will be best for the histogram showing the distribution of loan amounts? (see histogram and statistics)
+
+I would argue that a binwidth of 2500 would better suit this example.
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
@@ -380,12 +455,12 @@ In the code below, you will see that there is NOT a new layer. We added an **ele
 
 loan50_small |>
   ggplot(aes(x = loan_amount)) +
-  geom_histogram(binwidth = ) +
+  geom_histogram(binwidth = 2500) +
   labs(
-    title ="",
-    subtitle = "",
-    x = "",
-    y = ""
+    title ="What size loans to people get at Lending Club?",
+    subtitle = "Sample of 50 loans from Lending Club",
+    x = "Loan Amount ($)",
+    y = "Number of Loans"
   )
 
 ```
@@ -421,7 +496,17 @@ Edit the words min, max, and ticks in the code you see in the previous line. min
 :::
 
 ```{r adjust scales}
-
+loan50_small |>
+  ggplot(aes(x = loan_amount)) +
+  geom_histogram(binwidth = 2500) +
+  labs(
+    title ="What size loans to people get at Lending Club?",
+    subtitle = "Sample of 50 loans from Lending Club",
+    x = "Loan Amount ($)",
+    y = "Number of Loans"
+  ) +
+  scale_x_continuous(breaks = seq(0, 45000, 5000)) +
+  coord_cartesian(xlim = c(0, 45000))
 ```
 
 ### 6.4: Clean Up
@@ -446,7 +531,18 @@ Removing clutter is often a wise choice when designing a visualization. That is 
 
 ```{r clean up}
 
-
+loan50_small |>
+  ggplot(aes(x = loan_amount)) +
+  geom_histogram(binwidth = 2500)+
+  labs(
+    title ="What size loans to people get at Lending Club?",
+    subtitle = "Sample of 50 loans from Lending Club",
+    x = "Loan Amount ($)",
+    y = "Number of Loans"
+  ) +
+  scale_x_continuous(limits = c(0, 45000), breaks = seq(0, 45000, 5000)) +
+  coord_cartesian(xlim = c(0, 45000)) +
+  theme_minimal()
 
 ```
 
@@ -468,14 +564,15 @@ Removing clutter is often a wise choice when designing a visualization. That is 
 ```{r fill and color}
 loan50_small |>
   ggplot(aes(x = loan_amount)) +
-  geom_histogram(binwidth = 2500, fill = "", color = "") +
+  geom_histogram(binwidth = 2500, fill = "#002a4e", color = "#ef4123") +
   labs(
-    title ="Distribution of Loan Amounts",
-    subtitle = "50 randomly selected loans from Lending Club",
-    x = "Loan Amount in US Dollars",
+    title ="What size loans to people get at Lending Club?",
+    subtitle = "Sample of 50 loans from Lending Club",
+    x = "Loan Amount ($)",
     y = "Number of Loans"
   ) +
   scale_x_continuous(limits = c(0, 45000), breaks = seq(0, 45000, 5000)) +
+  coord_cartesian(xlim = c(0, 45000)) +
   theme_minimal()
 
 ```
@@ -501,6 +598,17 @@ You've done a lot so far! Congrats! One by one, you adjusted various elements of
 :::
 
 ```{r put it all together}
+loan50_small |>
+  ggplot(aes(x = total_income)) +
+  geom_histogram(binwidth = 25000, fill = "#002a4e", color = "#ef4123") +
+  labs(
+    title ="What incomes do people who get loans from Lending Club tend to have?",
+    subtitle = "Sample of 50 loans from Lending Club",
+    x = "Total Income ($)",
+    y = "Number of Loans"
+  ) +
+  scale_x_continuous(limits = c(0, 400000), breaks = seq(0, 400000, 50000)) +
+  theme_minimal()
 
 ```
 
@@ -515,5 +623,20 @@ You've done a lot so far! Congrats! One by one, you adjusted various elements of
 :::
 
 ```{r bonus median line}
-
+loan50_small |>
+  ggplot(aes(x = total_income)) +
+  geom_density(fill = "#002a4e", color = "#ef4123", alpha = 0.5) +
+  geom_vline(aes(xintercept = median(total_income)),
+             color = "grey",
+             linetype = "dashed",
+             size = 1) +
+  labs(
+    title ="What incomes do people who get loans from Lending Club tend to have?",
+    subtitle = "Sample of 50 loans from Lending Club",
+    x = "Total Income ($)",
+    y = ""
+  ) +
+  scale_x_continuous(limits = c(0, 400000), breaks = seq(0, 400000, 50000)) +
+  theme_minimal() +
+  theme(axis.text.y = element_blank())  # Removes y-axis numbers
 ```
