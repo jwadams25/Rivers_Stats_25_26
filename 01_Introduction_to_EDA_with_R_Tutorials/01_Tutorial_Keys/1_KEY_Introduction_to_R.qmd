@@ -1,6 +1,6 @@
 ---
-title: "Tutorial 1: Introduction to R and RStudio"
-author: "YOUR NAME"
+title: "KEY - Tutorial 1: Introduction to R and RStudio"
+author: "KEY"
 editor: visual
 format: 
   gfm:
@@ -77,7 +77,7 @@ At its most basic level, R can be used as a calculator. **Keep your phone in you
 3+2
 #1 - Type your calculation below
 
-
+4+5
 ```
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
@@ -87,7 +87,7 @@ At its most basic level, R can be used as a calculator. **Keep your phone in you
 ```{r calculator}
 #2 - Type your calculation below
 
-
+(5+15)/10
 ```
 
 ## 3: Name functions
@@ -119,8 +119,16 @@ Naming tips:
 
 ```{r naming}
 
+my_first_calculation <- 4+5
+my_first_calculation
 
+second_calculation <- 5*6
+second_calculation
 
+third_calculation <- 12/4
+third_calculation
+
+my_first_calculation*second_calculation*third_calculation
 ```
 
 ## 4: Create a vector
@@ -158,7 +166,8 @@ In the gray space below...
 :::
 
 ```{r create numeric vector}
-
+my_numeric_vector <- c(1,2,3,4)
+my_numeric_vector
 ```
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
@@ -166,11 +175,22 @@ In the gray space below...
 :::
 
 ```{r create character vector}
-
+my_char_vector <- c("Rivers", "RSC", "Campe Nonesuch", "Rivers Fan Zone")
+my_char_vector
 ```
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 Bonus: Name the significance of each number in the vector created above titled, `rivers_numeric_vector`.
+
+c(1915,333,6,12)
+
+1915 = The year Rivers School was founded
+
+333 = The street number for Rivers School
+
+6 = The first grade level at the Rivers School
+
+12 = The highest grade level at the Rivers School
 :::
 
 ## 5: Create a data frame
@@ -193,18 +213,26 @@ rivers_data
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  What is the name of this data frame? Type it EXACTLY how it appears in the code above.
+
+    The name of the data frame is rivers_data.
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  How many variables are in this data frame and what are their names? Type the names EXACTLY how they appear in the code above.
+
+    There are two variables. important_numbers and riv_colors
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 3.  What types of variables are they?
+
+    important_numbers is a numeric variable. riv_colors is a categorical variable.
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 4.  How many observations are in this data frame?
+
+    There are 4 observations.
 :::
 
 ### 5.2: Tasks and Questions
@@ -216,6 +244,10 @@ rivers_data
 ```{r create a data frame}
 # 1: Create and name your data frame in the lines below.
 
+answer_key_data <- data.frame(
+  my_numeric_vector = c(1,2,3,4), 
+  my_char_vector = c("Rivers", "RSC", "Campe Nonesuch", "Rivers Fan Zone")
+)
 
-
+answer_key_data
 ```
