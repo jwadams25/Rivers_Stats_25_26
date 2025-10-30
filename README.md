@@ -1,1 +1,1 @@
-# Rivers_Stats_25_26
+This repo houses tutorials and data challenges used in the Statistics courses at The Rivers School.
