@@ -517,4 +517,3 @@ You've done a lot so far! Congrats! One by one, you adjusted various elements of
 ```{r bonus median line}
 
 ```
-

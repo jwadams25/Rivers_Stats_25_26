@@ -1,0 +1,448 @@
+---
+title: "KEY Tutorial 3: EDA with Categorical Data"
+author: "YOUR NAME"
+editor: visual
+format: 
+  gfm:
+    fig-width: 8
+    fig-height: 4
+    toc: true
+    toc_depth: 4
+---
+
+# Before You Begin
+
+Be sure to **read everything** as the structure of the tutorial is such that everything builds upon the items that came before it.
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+Any text highlighted in this red border will require you to either **edit and run a code chunk or just run a code chunk**.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+Any text highlighted in this blue border will **require you to answer a question**. You can type your response directly in the box with the blue border.
+:::
+
+# EDA with Categorical Data
+
+# Libraries
+
+```{r libraries}
+library(tidyverse)
+library(openintro)
+library(janitor)
+library(knitr)
+library(kableExtra)
+library(gridExtra)
+library(readr)
+library(gt)
+library(ggthemes)
+```
+
+# By the end of this tutorial I should be able to...
+
+1: Explore one categorical variable by...
+
+-   Building a table with counts and proportions
+
+-   Arranging a table from least to greatest or greatest to least
+
+-   Building a bar plot and adjust the direction, arrangement, and color of the bars and change labels.
+
+2: Explore two categorical variables by...
+
+-   Build a contingency table with counts and proportions
+
+-   Create a bar plot that includes both variables and adjusting styling and labels.
+
+# 1: Exploring One Categorical Variable
+
+## 1.1 Data for Part One
+
+To learn how you can explore one categorical variable using R, you will use the data in the `openintro` packaged called `immigration`.
+
+[Click here to read a description of the dataset.](http://openintrostat.github.io/openintro/reference/immigration.html)
+
+### 1.1: Tasks and Questions
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+1.  Without running the code below, read the code and write down what the name of the data frame will be. (Be sure to type the name EXACTLY as it appears in the code)
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+2.  What/Who are the observational units?
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+3.  How many observations are there? (You can now run the code to help answer this question.)
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+4.  List the two variables included in this data frame. Be sure to list the name of the variable exactly as it appears and label the type of each variable.
+:::
+
+```{r Data}
+# View it and take a glimpse of it.
+
+view(immigration)
+
+glimpse(immigration)
+
+```
+
+## 1.2 Build a table
+
+Now that you have an understanding of the data, let's start exploring.
+
+To begin, we will explore the question:
+
+**How many of the survey respondents described themselves as having a political ideology of either conservative, liberal, or moderate?**
+
+Obviously, we are not going to look at the data and get our answer by counting by hand! What a waste of time! One thing we could do is tell the computer to build a table for us! The structure of the code required to make a table will read like this:
+
+Look at this data called `immigration` `AND THEN`
+
+`count` the number of items for each level in this `categorical variable`.
+
+### 1.2 Tasks and Questions
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+1.  Based on the description above that details the structure of the code, erase the `______` sections in the code chunk below and replace them with either the *name of the data set* or *the name of the variable* needed to answer our question.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+2.  Which political ideology had the most respondents? How many did they have?
+:::
+
+```{r build table with counts one var}
+
+________ |>
+  count(________)
+
+```
+
+## 1.3 Table with Proportions and Counts
+
+Knowing the total in each group is helpful. Knowing what proportion of respondents fell into each level can also be helpful. To get that information you have to add one line of code to what you wrote in part 1.2.
+
+That line of code is what you see in the gray space below. The **`mutate`** function in that line **is creating a new variable called** proportion that takes the number of respondents in each level and divides each of those by the total number of respondents.
+
+### 1.3 Tasks and Questions
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+1.  Copy the code you wrote in part 1.2 into the line above the code you see below.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+2.  Add the pipe symbol, `|>`, at the end of the line that has `count`.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+3.  Run the code.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+4.  What proportion of the respondents identified themselves as moderate?
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+5.  **(BONUS)** Add a new variable to this data frame that shows the percentage of respondents for each political ideology.
+:::
+
+```{r table with prop}
+
+
+  mutate(proportion = n / sum(n)) |>
+  gt()
+
+```
+
+## 1.4 Arranging the table
+
+We've talked a lot about clear and effective communication. One way to do that when making a table is by arranging the table in a meaningful way. The political ideology variable is not ordinal so we can order the table from least to greatest or greatest to least. Again, adding one line of code to what we've already created will do just that.
+
+### 1.4 Tasks and Questions
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+1.  Copy the code from part 1.3 and paste it into the gray space below.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+2.  Add a pipe symbol, `|>`, after the row that includes `mutate`.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+3.  In the next line of code add: `arrange(desc(proportion))`
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+4.  Run the entire code chunk.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+5.  What do you think `desc`, which is in the line of code you just ran, stands for?
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+6.  Write in plain English what each row of the code below does.
+:::
+
+```{r arranging table}
+
+
+  arrange(desc(proportion))
+
+```
+
+## 1.5: Build a Bar Plot
+
+After building the table, you now have a better understanding of the respondents to the survey. The table could be used as a visualization. However, often times people can more easily and quickly see the major takeaways from a bar plot. The table would then provide you with the numbers to support what is displayed in the bar plot.
+
+We will now build a bar plot that shows what is in the table you just created. The structure of the code to do this will look very similar to the code you wrote to make histograms and density curves in the previous tutorial.
+
+To answer this question...
+
+-   I need this `data frame` `and then`
+
+-   I specifically want to make a `plot` with this `variable` and need to put it on the blank `axis` and
+
+-   create this `visualization`.
+
+### 1.5 Tasks and Questions
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+1.  Change `NAME_OF_DATA_FRAME` and `CATEGORICAL_VARIABLE` so you create a bar plot that visualizes the same information you created in 1.2.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+2.  Run the code.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+3.  What are three design changes you'd like to make to this visualization to make it easier for someone to read?
+:::
+
+```{r bar plot}
+
+NAME_OF_DATA_FRAME |>
+  ggplot(aes(x = CATEGORICAL_VARIABLE)) +
+  geom_bar()
+
+```
+
+## 1.6: Adjust bar plot to implement some data visualizations best practices.
+
+Making a bar plot without adjusting any design elements should be your **first step** when exploring data. **Keep it simple** and keep your process short as you start learning about the data.
+
+Only after that can you begin to say things like, "Oh, given what it shows, I should change the title to \_\_\_, the scales on the axes need adjusting, and flip it horizontally."
+
+This next section of this tutorial will guide you through adding or adjusting layers of code to produce a more polished bar plot.
+
+These are the steps you are taking as you prepare to put your visualizations into a paper or presentation.
+
+### 1.6a: Horizontal Bars and Labels
+
+Let's begin by making the bars lay horizontally and adding in a few of the design layers you learned in the second tutorial.
+
+#### 1.6a: Tasks and Questions
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+1.  The code chunk below will cause the bars to lay horizontally. It looks VERY similar to the code written in 1.5. What was changed in the code from 1.5 to make the bars lay horizontally?
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+2.  Add in appropriate labels in between each `""`.
+:::
+
+```{r horizontal and labels}
+immigration |>
+  ggplot(aes(y = political)) +
+  geom_bar() +
+  labs(x = "", 
+       y = "", 
+       title = "", 
+       subtitle = "Based on a random sample of 910 registred voters in Tampa, Florida") 
+```
+
+### 1.6b: Arranging the bars and changing colors
+
+You will also want to help an observer of your visualization by **ordering the bars from greatest to least**, **filling the bars in with meaningful colors, and removing some clutter**.
+
+The changes to what comes after `y =` in the code below change the order of the bars from least to greatest.
+
+Putting political after `fill =` is a necessary step given how you will adjust the color of the bars.
+
+#### 1.6b: Tasks and Questions
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+1.  Given the context of what we are visualizing, what colors would best fit each bar? Again, feel free to reference [this site for the names of the colors you want](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+2.  Change `CONSERVATIVE_COLOR`, `LIBERAL_COLOR`, and `MODERATE_COLOR` in the code below to the names of the colors you selected in question 1. Keep the quotes around each color name.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+3.  Run the code and pat yourself on the back!
+:::
+
+```{r complete bar}
+immigration |>  
+  ggplot(aes(y = fct_rev(fct_infreq(political)), fill = political)) +
+  geom_bar() +
+  labs(x = "", 
+       y = "", 
+       title = "Political Affiliations of Registered Votes in Tampa, Florida", 
+       subtitle = "Based on a random sample of 910 registred voters in Tampa, Florida") +
+  scale_fill_manual(values = c("CONSERVATIVE_COLOR","LIBERAL_COLOR", "MODERATE_COLOR"), guide = FALSE) +
+  theme_minimal()
+  
+```
+
+# 2: Exploring Two Categorical Variables
+
+The question you answered on one of your homework assignments was, "Do political ideology and views on immigration appear to be associated?"
+
+Answering that question requires you to explore two categorical variables. This part of the tutorial will walk you through **building contingency tables and filled bar plots**.
+
+## 2.1: Contingency Table with Counts
+
+Let's start by recreating the table you saw on this homework problem. To get a refresher, [visit question 2 by clicking here.](https://openintro-ims.netlify.app/explore-categorical.html#sec-chp4-exercises)
+
+### 2.1: Tasks and Questions
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+1.  Change `NAME_OF_DATA_FRAME` and `SECOND_VARIABLE` so you can create the contingency table with the right information.
+:::
+
+```{r contingency counts}
+NAME_OF_DATA_FRAME |>
+  count(political, SECOND_VARIABLE) |>
+  pivot_wider(names_from = political, values_from = n) |>
+  adorn_totals(where = c("row", "col")) |>
+  gt()
+```
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+2.  Copy the code you just wrote. Go to [Gemini](https://gemini.google.com/app). Paste the code and then type, "I am new to learning how to write R. You are an expert data scientist, teacher, and mentor. Provide me with an explanation of what each line of this code does?" Hit Enter. In this space, summarize what you learned.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+3.  Given the results in the table and bar plot you produced in part 1 of this tutorial, why might we not want to compare the NUMBER of people within each political ideology that responded for each level of immigration?
+:::
+
+## 2.2: Contingency Table with Proportions.
+
+In the code below, you will create a contingency with column proportions.
+
+In other words, you want to have a table that can help answer questions like, "What **proportion** OF THOSE who are conservative responded by saying they support applying for citizenship?"
+
+### 2.2: Tasks and Questions
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+1.  Change `NAME_OF_DATA_FRAME`, `FIRST_VARIABLE`, and `SECOND_VARIABLE` in the code below to create the contingency table described above.
+:::
+
+```{r contingency proportion}
+
+ NAME_OF_DATA_FRAME|>
+  count(FIRST_VARIABLE, SECOND_VARIABLE) |> 
+  group_by(FIRST_VARIABLE) |>
+  mutate(proportion = round(n / sum(n), digits = 4)) |> 
+  select(-n) |>
+  pivot_wider(names_from = political, values_from = proportion) |>
+  gt()
+
+```
+
+## 2.3: Visualize Two Categorical Variables with a Standardized Bar Plot
+
+As we did in part one, we want to create a data visualization in addition to a table. Because there was a big difference between the number of people who responded from each political ideology, we will make a filled bar plot.
+
+### 2.3a: Create a Standardized Bar Plot
+
+#### 2.3a: Tasks and Questions
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+1.  Before we dive into the code, take out either a piece of paper or your iPad and draw a rough sketch of the standardized bar plot that will support the table you created in part 2.2. We are going to make the bars lay horizontally. You do not have to draw it to exact scale. Instead be sure you can identify what variable will be on the y-axis, what variable you will fill the bars, and what labels will you want to include.
+
+Call Mr. Adams over before going to the next step.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+2.  Change `NAME_OF_DATA_FRAME`, `FIRST_VARIABLE`, and `SECOND_VARIABLE` in the code below to create the standardized bar plot.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+3.  Add in a title, labels for each axis, and a label for the key.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+4.  Run the code and pat yourself on the back!
+:::
+
+```{r standardized bar}
+
+NAME_OF_DATA_FRAME |>
+  ggplot(aes(y = FIRST_VARIABLE, fill = SECOND_VARIABLE)) +
+  geom_bar(position = "fill", color = "white") +
+  labs(
+    title = "",
+    x = "",
+    y = "",
+    fill = ""
+  )
+
+```
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+**Bonus:**
+
+If you are curious to see how to make a **stacked plot** with the same data, copy the code you just made into the code chunk below and change `"fill"` to `"stacked"` and then run the code.
+
+If you are curious to see how to make a **dodged plot** with the same data, copy the code you just made into the code chunk below andchange `"fill"` to `"dodge"` and then run the code.
+:::
+
+```{r stacked and dodged plots}
+
+```
+
+### 2.3b Adjust standardized bar plot to include some data visualization best practices
+
+Like before, we want the main takeaway to pop out to the viewer of this visualization. In this case we will highlight the filled spaces representing proportion supporting Apply for Citizenship and order the bars from least to greatest proportion that support Apply for Citizenship.
+
+#### 2.3b Tasks and Questions
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+1.  In the row that starts with `scale_fill_manual`, change the `APPLY's color` to any color you'd like. Change all the other colors to `lightgray` (NO SPACES in lightgray)
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+2.  Run the code and pat yourself on the back!
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+3.  Now that you've seen the visualization, add in a subtitle that will highlight the major takeaway from this visualization.
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+4.  Run the code again. Stand up. Put your hands in the air and yell, "LET'S GOOOOO!!!"
+:::
+
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+5.  After your brief celebration, write answer the question we started with in this part of the tutorial: "Do political ideology and views on immigration appear to be associated?"
+:::
+
+```{r final}
+
+immigration |>
+  ggplot(aes(y = fct_rev(fct_infreq(political)), fill = response)) +
+  geom_bar(position = "fill", color = "white") +
+  labs(
+    title = "",
+    subtitle = "",
+    x = "",
+    y = ""
+  ) +
+  scale_fill_colorblind() +
+  theme_minimal()
+```
