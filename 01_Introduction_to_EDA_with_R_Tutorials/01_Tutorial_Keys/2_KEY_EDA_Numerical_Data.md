@@ -1,56 +1,60 @@
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
 # KEY - EDA with Numerical Data
+
 YOUR NAME
 
-- [Before You Begin](#before-you-begin)
-- [EDA with Numerical Data!](#eda-with-numerical-data)
-- [By the end of this tutorial I should be able
-  to…](#by-the-end-of-this-tutorial-i-should-be-able-to)
-  - [1: Load the proper libraries before I start exploring the
-    data.](#1-load-the-proper-libraries-before-i-start-exploring-the-data)
-    - [1.1: Tasks and Questions](#11-tasks-and-questions)
-  - [2: View the data](#2-view-the-data)
-    - [2.1: Tasks and Questions](#21-tasks-and-questions)
-    - [2.2: Tasks and Questions](#22-tasks-and-questions)
-  - [3: Build a histogram.](#3-build-a-histogram)
-    - [3.1: Tasks and Questions](#31-tasks-and-questions)
-    - [3.2: Tasks and Questions](#32-tasks-and-questions)
-  - [4: Build a density curve.](#4-build-a-density-curve)
-    - [4.1: Tasks and Questions](#41-tasks-and-questions)
-  - [5: Generate summary statistics to support a histogram and density
-    curve.](#5-generate-summary-statistics-to-support-a-histogram-and-density-curve)
-    - [5.1: Tasks and Questions](#51-tasks-and-questions)
-  - [6: Adjust the histogram to include some data visualization best
-    practices.](#6-adjust-the-histogram-to-include-some-data-visualization-best-practices)
-    - [6.1: Adding Labels](#61-adding-labels)
-    - [6.2: Adjusting Bins](#62-adjusting-bins)
-    - [6.3: Adjusting Scales](#63-adjusting-scales)
-    - [6.4: Clean Up](#64-clean-up)
-    - [6.5: Fill the Bars and Add
-      Color](#65-fill-the-bars-and-add-color)
-    - [6.6: Put it all together.](#66-put-it-all-together)
-    - [7 Bonus:](#7-bonus)
+-   [Before You Begin](#before-you-begin)
+-   [EDA with Numerical Data!](#eda-with-numerical-data)
+-   [By the end of this tutorial I should be able
+    to…](#by-the-end-of-this-tutorial-i-should-be-able-to)
+    -   [1: Load the proper libraries before I start exploring the
+        data.](#1-load-the-proper-libraries-before-i-start-exploring-the-data)
+        -   [1.1: Tasks and Questions](#11-tasks-and-questions)
+    -   [2: View the data](#2-view-the-data)
+        -   [2.1: Tasks and Questions](#21-tasks-and-questions)
+        -   [2.2: Tasks and Questions](#22-tasks-and-questions)
+    -   [3: Build a histogram.](#3-build-a-histogram)
+        -   [3.1: Tasks and Questions](#31-tasks-and-questions)
+        -   [3.2: Tasks and Questions](#32-tasks-and-questions)
+    -   [4: Build a density curve.](#4-build-a-density-curve)
+        -   [4.1: Tasks and Questions](#41-tasks-and-questions)
+    -   [5: Generate summary statistics to support a histogram and
+        density
+        curve.](#5-generate-summary-statistics-to-support-a-histogram-and-density-curve)
+        -   [5.1: Tasks and Questions](#51-tasks-and-questions)
+    -   [6: Adjust the histogram to include some data visualization best
+        practices.](#6-adjust-the-histogram-to-include-some-data-visualization-best-practices)
+        -   [6.1: Adding Labels](#61-adding-labels)
+        -   [6.2: Adjusting Bins](#62-adjusting-bins)
+        -   [6.3: Adjusting Scales](#63-adjusting-scales)
+        -   [6.4: Clean Up](#64-clean-up)
+        -   [6.5: Fill the Bars and Add
+            Color](#65-fill-the-bars-and-add-color)
+        -   [6.6: Put it all together.](#66-put-it-all-together)
+        -   [7 Bonus:](#7-bonus)
 
-## Before You Begin
+## Before You Begin {#before-you-begin}
 
 Be sure to **read everything** as the structure of the tutorial is such
 that everything builds upon the items that came before it.
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 Any text highlighted in this red border will require you to either
 **edit and run a code chunk or just run a code chunk**.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 Any text highlighted in this blue border will **require you to answer a
 question**. You can type your response directly in the box with the blue
 border.
+:::
 
-</div>
-
-# EDA with Numerical Data!
+# EDA with Numerical Data! {#eda-with-numerical-data}
 
 You’ve just finished one tutorial that got your wheels turning! If that
 was your first time writing code, congrats on taking the dive into an
@@ -63,7 +67,7 @@ gleaned from those calculations and visualizations. With that strong
 foundation laid down, you are now **ready to explore real data to begin
 uncovering the stories hidden within them.**
 
-# By the end of this tutorial I should be able to…
+# By the end of this tutorial I should be able to… {#by-the-end-of-this-tutorial-i-should-be-able-to}
 
 1: Load the proper libraries before I start exploring the data.
 
@@ -92,34 +96,36 @@ seen when reading.
 
 ### 1.1: Tasks and Questions
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.  Run the following code.
-
-</div>
+:::
 
 ``` r
 library(tidyverse)
 ```
 
-    ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-    ✔ dplyr     1.1.4     ✔ readr     2.1.5
-    ✔ forcats   1.0.1     ✔ stringr   1.5.2
-    ✔ ggplot2   4.0.0     ✔ tibble    3.3.0
-    ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-    ✔ purrr     1.1.0     
-    ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-    ✖ dplyr::filter() masks stats::filter()
-    ✖ dplyr::lag()    masks stats::lag()
-    ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+```         
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.1     ✔ stringr   1.5.2
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+```
 
 ``` r
 library(openintro)
 ```
 
-    Loading required package: airports
-    Loading required package: cherryblossom
-    Loading required package: usdata
+```         
+Loading required package: airports
+Loading required package: cherryblossom
+Loading required package: usdata
+```
 
 ## 2: View the data
 
@@ -135,123 +141,108 @@ Again, the Name_of_the_Dataset is `loan50`.
 
 ### 2.1: Tasks and Questions
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.Run the following code to view the data.
-
-</div>
+:::
 
 ``` r
 view(loan50)
 ```
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 2.  Run the following code to get a glimpse of the data.
-    - This will show you the number of observations, the number of
-      variables, the names of them, and the type of them.
+    -   This will show you the number of observations, the number of
+        variables, the names of them, and the type of them.
 
-    - The names of the variables listed down the first column just after
-      each \$.
+    -   The names of the variables listed down the first column just
+        after each \$.
 
-    - The type is listed inbetween these symbols \<\>. For more
-      information on this, [please feel free to click through this slide
-      deck.](https://sta199-f25.github.io/slides/05-exploratory-data-analysis-I-slides.html#/variable-types-district)
+    -   The type is listed inbetween these symbols \<\>. For more
+        information on this, [please feel free to click through this
+        slide
+        deck.](https://sta199-f25.github.io/slides/05-exploratory-data-analysis-I-slides.html#/variable-types-district)
 
-    - The names of the variables listed down the first column just after
-      each \$.
-
-</div>
+    -   The names of the variables listed down the first column just
+        after each \$.
+:::
 
 ``` r
 glimpse(loan50)
 ```
 
-    Rows: 50
-    Columns: 18
-    $ state                   <fct> NJ, CA, SC, CA, OH, IN, NY, MO, FL, FL, MD, HI…
-    $ emp_length              <dbl> 3, 10, NA, 0, 4, 6, 2, 10, 6, 3, 8, 10, 10, 2,…
-    $ term                    <dbl> 60, 36, 36, 36, 60, 36, 36, 36, 60, 60, 36, 36…
-    $ homeownership           <fct> rent, rent, mortgage, rent, mortgage, mortgage…
-    $ annual_income           <dbl> 59000, 60000, 75000, 75000, 254000, 67000, 288…
-    $ verified_income         <fct> Not Verified, Not Verified, Verified, Not Veri…
-    $ debt_to_income          <dbl> 0.55752542, 1.30568333, 1.05628000, 0.57434667…
-    $ total_credit_limit      <int> 95131, 51929, 301373, 59890, 422619, 349825, 1…
-    $ total_credit_utilized   <int> 32894, 78341, 79221, 43076, 60490, 72162, 2872…
-    $ num_cc_carrying_balance <int> 8, 2, 14, 10, 2, 4, 1, 3, 10, 4, 3, 4, 3, 2, 3…
-    $ loan_purpose            <fct> debt_consolidation, credit_card, debt_consolid…
-    $ loan_amount             <int> 22000, 6000, 25000, 6000, 25000, 6400, 3000, 1…
-    $ grade                   <fct> B, B, E, B, B, B, D, A, A, C, D, A, A, A, A, E…
-    $ interest_rate           <dbl> 10.90, 9.92, 26.30, 9.92, 9.43, 9.92, 17.09, 6…
-    $ public_record_bankrupt  <int> 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0…
-    $ loan_status             <fct> Current, Current, Current, Current, Current, C…
-    $ has_second_income       <lgl> FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALS…
-    $ total_income            <dbl> 59000, 60000, 75000, 75000, 254000, 67000, 288…
+```         
+Rows: 50
+Columns: 18
+$ state                   <fct> NJ, CA, SC, CA, OH, IN, NY, MO, FL, FL, MD, HI…
+$ emp_length              <dbl> 3, 10, NA, 0, 4, 6, 2, 10, 6, 3, 8, 10, 10, 2,…
+$ term                    <dbl> 60, 36, 36, 36, 60, 36, 36, 36, 60, 60, 36, 36…
+$ homeownership           <fct> rent, rent, mortgage, rent, mortgage, mortgage…
+$ annual_income           <dbl> 59000, 60000, 75000, 75000, 254000, 67000, 288…
+$ verified_income         <fct> Not Verified, Not Verified, Verified, Not Veri…
+$ debt_to_income          <dbl> 0.55752542, 1.30568333, 1.05628000, 0.57434667…
+$ total_credit_limit      <int> 95131, 51929, 301373, 59890, 422619, 349825, 1…
+$ total_credit_utilized   <int> 32894, 78341, 79221, 43076, 60490, 72162, 2872…
+$ num_cc_carrying_balance <int> 8, 2, 14, 10, 2, 4, 1, 3, 10, 4, 3, 4, 3, 2, 3…
+$ loan_purpose            <fct> debt_consolidation, credit_card, debt_consolid…
+$ loan_amount             <int> 22000, 6000, 25000, 6000, 25000, 6400, 3000, 1…
+$ grade                   <fct> B, B, E, B, B, B, D, A, A, C, D, A, A, A, A, E…
+$ interest_rate           <dbl> 10.90, 9.92, 26.30, 9.92, 9.43, 9.92, 17.09, 6…
+$ public_record_bankrupt  <int> 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0…
+$ loan_status             <fct> Current, Current, Current, Current, Current, C…
+$ has_second_income       <lgl> FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALS…
+$ total_income            <dbl> 59000, 60000, 75000, 75000, 254000, 67000, 288…
+```
 
 **Are you confused? I certainly would be!** Before diving into any
 exploration, you need to first be sure you understand the data
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 3.  Click this link
     <https://www.openintro.org/data/index.php?data=loan50> to learn more
     about this dataset.
-
-</div>
+:::
 
 **For the next five questions, use information from the link you just
 read and the code your ran in questions 1 and 2 of this section.**
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 4.  From what platform was this data taken?
 
     This data was taken from Lending Club.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 5.  What does that platform do?
 
     Lending Club is an online platform this makes it possible for people
     to lend to one another.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 6.  What are the observational units in the `loan50` dataset?
 
     The observational units are loans given out on Lending Club.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 7.  How many observations are there?
 
     There are 50 loans in this data frame.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 8.  How many variables are there?
 
     There are 18 variables.
-
-</div>
+:::
 
 ***\*\*Important Note: or the rest of this tutorial, you will work with
 a smaller version of this data set. We’ll keep the 50 rows, but select 7
 of the 18 variables we started with.***
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 9.  Run the code below makes this new and smaller data frame.
-
-</div>
+:::
 
 ``` r
 loan50_small <- loan50 |>
@@ -270,29 +261,24 @@ We will name a new data frame `loan50_small`. To do so we take the
 
 ### 2.2: Tasks and Questions
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  What is the name of the new data frame created in the lines of code
     above? Type the name EXACTLY how it appears above. (Hint: Copying
     and pasting is your friend! Also, if you double click on text it
     will highlight it for you. Give it a try!)
 
     loan50_small
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  When you are reading code and come across the symbol \|\>, which is
     called pipe, you should say, “And \_\_\_\_\_\_.” *Tip: read the text
     just below the code chunk above to help you answer this question.*
 
 Then
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 3.  List all of the variables and state whether they are categorical or
     numerical? Type the names of the variables EXACTLY how they appear
     in the code above. *Hint: Copying and pasting is your friend!*
@@ -310,8 +296,7 @@ Then
 `total_income` - numerical
 
 `homeownership` - numerical
-
-</div>
+:::
 
 ## 3: Build a histogram.
 
@@ -323,25 +308,25 @@ Your process of doing those things has gone something like…
 
 To answer this question I…
 
-- need this data frame
+-   need this data frame
 
-- specifically need this variable
+-   specifically need this variable
 
-- need to put it on the \_\_\_\_\_ axis
+-   need to put it on the \_\_\_\_\_ axis
 
-- and I want to make this visualization.
+-   and I want to make this visualization.
 
 Fortunately, the structure of the code you will write to create
 visualizations in R follows this same structure.
 
 The code below reads like this…
 
-- Use the Name_of_Data_Frame AND THEN
+-   Use the Name_of_Data_Frame AND THEN
 
-- Make a plot with the following aesthetics: the x-axis is this
-  Numerical_Variable and ADD
+-   Make a plot with the following aesthetics: the x-axis is this
+    Numerical_Variable and ADD
 
-- A histogram.
+-   A histogram.
 
 ``` r
 loan50_small |>
@@ -349,66 +334,56 @@ loan50_small |>
   geom_histogram()
 ```
 
-    `stat_bin()` using `bins = 30`. Pick better value `binwidth`.
+```         
+`stat_bin()` using `bins = 30`. Pick better value `binwidth`.
+```
 
 ![](2_KEY_EDA_Numerical_Data_files/figure-commonmark/example%20histogram-1.png)
 
 ### 3.1: Tasks and Questions
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.  Run the code above.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  What is a question that could be explored with the histogram created
     by the code above?
 
     What size loans tend to be given out on Lending Club?
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 3.  Describe the shape of the distribution and what that tells you about
     the loan amounts.
 
 The distribution of loans is skewed to the right, meaning that most
 loans are less than \$20,000 while a small number of loans are \$30,000
 or more.
-
-</div>
+:::
 
 ### 3.2: Tasks and Questions
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  Write a statistical question that could be answered by creating a
     histogram using the data frame named `loan50_small`. *(use a
     different variable than the one used in 3.1)*
 
     What is the typical income of someone taking a loan out on Lending
-    Club?  
+    Club?
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  What is the numerical variable you would need to use to create a
     histogram to help answer your question. Write the name EXACTLY as it
     appears in the data frame.
 
 total_income
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 3.  In the code below, replace `NAME_OF_DATA_FRAME` with loan50_small.
-
-</div>
+:::
 
 ``` r
 loan50_small |>
@@ -416,19 +391,18 @@ loan50_small |>
   geom_histogram()
 ```
 
-    `stat_bin()` using `bins = 30`. Pick better value `binwidth`.
+```         
+`stat_bin()` using `bins = 30`. Pick better value `binwidth`.
+```
 
 ![](2_KEY_EDA_Numerical_Data_files/figure-commonmark/your%20first%20histogram-1.png)
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 4.  In the code above, replace `NUMERICAL_VARIABLE` with the name you
     wrote in question 2 and then run the chunk of code.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 5.  Describe the distribution. Be sure to comment on the shape, center,
     and spread of the distribution.
 
@@ -436,39 +410,32 @@ The interest rates on Lending Club loans tend to fall below 11%. The
 median interest appears to be 10%. The distribution in skewed to the
 right, which means that while many of interest rates are below 11%,
 there are a few loans that had interest rates of 20 to 28 percent.
-
-</div>
+:::
 
 ## 4: Build a density curve.
 
 ### 4.1: Tasks and Questions
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.  Copy the code from above that was used to create a histogram showing
     the distribution of `loan_amount` and paste it into the gray section
     below question 3 of this section. The grey space has the label your
     first density curve.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  If you are about to change your visualization from a histogram to a
     density curve, will you need to change the variable listed on the
     x-axis?
 
 No, you will not need to change the variable on the x-axis as we are
 still going to explore the distribution of loan amounts.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 3.  In the code below, change geom_histogram() to geom_density() and
     then run the entire code chuck.
-
-</div>
+:::
 
 ``` r
 loan50_small |>
@@ -478,15 +445,13 @@ loan50_small |>
 
 ![](2_KEY_EDA_Numerical_Data_files/figure-commonmark/your%20first%20density%20curve-1.png)
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 4.  Bonus: True or False - You can create a density curve for a discrete
     numeric variable. (Explain your answer.)
 
 No. A density curve is continuous and therefore can only be used for
 numeric variables taht are continuous.
-
-</div>
+:::
 
 ## 5: Generate summary statistics to support a histogram and density curve.
 
@@ -498,30 +463,30 @@ datasets.
 The structure of the code used to perform these calculations goes like
 this…
 
-- Look at this data AND THEN
+-   Look at this data AND THEN
 
-- select this/these variable(s) AND THEN
+-   select this/these variable(s) AND THEN
 
-- generate the summary statistics
+-   generate the summary statistics
 
 Below is the code to generate the summary statistics for the histogram I
 created.
 
 ***Important Notes:***
 
-- *The word before the = will be the name of the calculation. This name
-  can be anything, though it should help remind you what calculation you
-  are doing.*
+-   *The word before the = will be the name of the calculation. This
+    name can be anything, though it should help remind you what
+    calculation you are doing.*
 
-- *The text you see after = is the actual code that will perform the
-  calculation. This has to be exactly as you see it.*
+-   *The text you see after = is the actual code that will perform the
+    calculation. This has to be exactly as you see it.*
 
-- The text inside the () is the variable on which you want that
-  calculation run.
+-   The text inside the () is the variable on which you want that
+    calculation run.
 
-- `Mean = mean(loan_amount)` For this line, you are going to name the
-  calculation `Mean` and have the computer run the `mean` function for
-  the variable `loan_amount` variable.
+-   `Mean = mean(loan_amount)` For this line, you are going to name the
+    calculation `Mean` and have the computer run the `mean` function for
+    the variable `loan_amount` variable.
 
 ``` r
 loan50_small |>
@@ -539,21 +504,21 @@ loan50_small |>
   )
 ```
 
-    # A tibble: 1 × 9
-       Mean Median     SD   IQR Q_one Q_three minimum_value maximum_value
-      <dbl>  <dbl>  <dbl> <dbl> <dbl>   <dbl>         <int>         <int>
-    1 17083  15500 10455. 16875  7125   24000          3000         40000
-    # ℹ 1 more variable: number_observations <int>
+```         
+# A tibble: 1 × 9
+   Mean Median     SD   IQR Q_one Q_three minimum_value maximum_value
+  <dbl>  <dbl>  <dbl> <dbl> <dbl>   <dbl>         <int>         <int>
+1 17083  15500 10455. 16875  7125   24000          3000         40000
+# ℹ 1 more variable: number_observations <int>
+```
 
 ### 5.1: Tasks and Questions
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.  Write the code that would generate the summary statistics that could
     be used to help answer the questions **you wrote in 3.2**. *Hint:
     Copy and Paste is your friend!*
-
-</div>
+:::
 
 ``` r
 loan50_small |>
@@ -570,20 +535,20 @@ loan50_small |>
   )
 ```
 
-    # A tibble: 1 × 8
-         Mean Median     SD   IQR Q_one Q_three minimum_value maximum_value
-        <dbl>  <dbl>  <dbl> <dbl> <dbl>   <dbl>         <dbl>         <dbl>
-    1 105221.  78750 68142. 59000 60000  119000         28800        325000
+```         
+# A tibble: 1 × 8
+     Mean Median     SD   IQR Q_one Q_three minimum_value maximum_value
+    <dbl>  <dbl>  <dbl> <dbl> <dbl>   <dbl>         <dbl>         <dbl>
+1 105221.  78750 68142. 59000 60000  119000         28800        325000
+```
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 2.  Copy and Paste the code for your histogram and your summary stats
     into the space below so that you have both your visualization and
     statistics in one location.
 
 3.  Run the code.
-
-</div>
+:::
 
 ``` r
 loan50_small |>
@@ -591,7 +556,9 @@ loan50_small |>
   geom_histogram()
 ```
 
-    `stat_bin()` using `bins = 30`. Pick better value `binwidth`.
+```         
+`stat_bin()` using `bins = 30`. Pick better value `binwidth`.
+```
 
 ![](2_KEY_EDA_Numerical_Data_files/figure-commonmark/viz%20and%20stats-1.png)
 
@@ -610,13 +577,14 @@ loan50_small |>
   )
 ```
 
-    # A tibble: 1 × 8
-         Mean Median     SD   IQR Q_one Q_three minimum_value maximum_value
-        <dbl>  <dbl>  <dbl> <dbl> <dbl>   <dbl>         <dbl>         <dbl>
-    1 105221.  78750 68142. 59000 60000  119000         28800        325000
+```         
+# A tibble: 1 × 8
+     Mean Median     SD   IQR Q_one Q_three minimum_value maximum_value
+    <dbl>  <dbl>  <dbl> <dbl> <dbl>   <dbl>         <dbl>         <dbl>
+1 105221.  78750 68142. 59000 60000  119000         28800        325000
+```
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 4.  Describe the distribution of the numerical variable you choose when
     creating the data visualization. Be sure to comment on the shape,
     center, and spread of the distribution using statistical vocabulary
@@ -628,8 +596,7 @@ is skewed to the right with total incomes tending to be around \$78,750.
 The middle 50% of total incomes range from \$60,000 to \$119,000. While
 75% of folks getting a loan have incomes less that \$119,000, just 5
 people have incomes over \$200,000.
-
-</div>
+:::
 
 ## 6: Adjust the histogram to include some data visualization best practices.
 
@@ -650,14 +617,12 @@ To add labels to our visualization, we use `labs`.
 
 #### 6.1: Tasks and Questions
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.  Add a title, subtitle, and labels for each axis by typing in between
     each `""`.
 
 2.  Run the code chunk
-
-</div>
+:::
 
 ``` r
 loan50_small |>
@@ -671,7 +636,9 @@ loan50_small |>
   )
 ```
 
-    `stat_bin()` using `bins = 30`. Pick better value `binwidth`.
+```         
+`stat_bin()` using `bins = 30`. Pick better value `binwidth`.
+```
 
 ![](2_KEY_EDA_Numerical_Data_files/figure-commonmark/add%20labels%20to%20my%20histogram-1.png)
 
@@ -691,37 +658,29 @@ an **element** to the histogram so it adjusts the bin width.
 
 #### 6.2: Tasks and Questions
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  What bin width do you think will be best for the histogram showing
     the distribution of loan amounts? (see histogram and statistics)
 
 I would argue that a binwidth of 2500 would better suit this example.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 2.  Write the number you choose in question 1 after `binwidth =` in the
     code below.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 3.  Write in the title, subtitle, and labels for each axis into the code
     below.
 
 4.  Run the chunk of code.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 5.  After running it, adjust the binwidth to a value that you think
     creates the best possible histogram.
-
-</div>
+:::
 
 ``` r
 loan50_small |>
@@ -749,15 +708,12 @@ A good general rule, keep it simple!
 
 #### 6.3: Tasks and Questions
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.  Copy the code used to generate the histogram in 6.2 Tasks and
-    Questions \#5 and paste it into the gray space below.
+    Questions #5 and paste it into the gray space below.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 2.  When you have a continuous variable on the x-axis, you can use the
     following to adjust the scale:
 
@@ -766,22 +722,17 @@ A good general rule, keep it simple!
 Edit the words min, max, and ticks in the code you see in the previous
 line. min = minimum value for x-axis max = maximum value for x-axis
 ticks = where you want the markings along the x-axis.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 3.  Put a `+` at the end of the code you pasted into the section below
     and then jump to the next line.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 4.  Paste the scale_x_continuous code you adjusted into the last row of
     the code chunk below.
-
-</div>
+:::
 
 ``` r
 loan50_small |>
@@ -809,24 +760,18 @@ That is what you will do now.
 
 #### 6.4: Tasks and Questions
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.  Copy and past the code from 6.3 into the gray space below.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 2.  At the end of the line with `scale_x_continuous` put a `+`
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 3.  On the next line write in `theme_minimal()` and then run the entire
     chunk of code.
-
-</div>
+:::
 
 ``` r
 loan50_small |>
@@ -843,8 +788,10 @@ loan50_small |>
   theme_minimal()
 ```
 
-    Warning: Removed 2 rows containing missing values or values outside the scale range
-    (`geom_bar()`).
+```         
+Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_bar()`).
+```
 
 ![](2_KEY_EDA_Numerical_Data_files/figure-commonmark/clean%20up-1.png)
 
@@ -852,25 +799,21 @@ loan50_small |>
 
 #### 6.5: Tasks and Questions
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  What are Lending Clubs 2 main corporate colors? Hint: Google is your
     friend.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 2.  Do a Google search for Lending Clubs corporate colors in hex code.
     Hex code is used to get specific colors and is formatted with \#
     followed by a combination of 6 letters and/or numbers. White for
-    example is \#ffffff.
-    - Copy one of the color hex codes into the `""` that come after
-      `fill =` .
+    example is #ffffff.
+    -   Copy one of the color hex codes into the `""` that come after
+        `fill =` .
 
-    - Copy the other color into the `""` after `color =` .
-
-</div>
+    -   Copy the other color into the `""` after `color =` .
+:::
 
 ``` r
 loan50_small |>
@@ -887,8 +830,10 @@ loan50_small |>
   theme_minimal()
 ```
 
-    Warning: Removed 2 rows containing missing values or values outside the scale range
-    (`geom_bar()`).
+```         
+Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_bar()`).
+```
 
 ![](2_KEY_EDA_Numerical_Data_files/figure-commonmark/fill%20and%20color-1.png)
 
@@ -901,24 +846,20 @@ going to work with the histogram you created in part 3.2 questions 3 and
 
 #### 6.6: Tasks and Questions
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  Copy and paste the code you wrote for 3.2 question numbers 3 and 4
     into the gray space below and then run the code.
+:::
 
-</div>
-
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  Adjust the following elements of the histogram:
 
-- labels.
-- bin width
-- axis scales
-- theme
-- fill and color
-
-</div>
+-   labels.
+-   bin width
+-   axis scales
+-   theme
+-   fill and color
+:::
 
 ``` r
 loan50_small |>
@@ -934,8 +875,10 @@ loan50_small |>
   theme_minimal()
 ```
 
-    Warning: Removed 2 rows containing missing values or values outside the scale range
-    (`geom_bar()`).
+```         
+Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_bar()`).
+```
 
 ![](2_KEY_EDA_Numerical_Data_files/figure-commonmark/put%20it%20all%20together-1.png)
 
@@ -943,15 +886,13 @@ loan50_small |>
 
 #### Bonus Tasks
 
-<div style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;">
-
+::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  Turn the histogram you just made into a density curve.
 
 2.  Add a vertical line that represents the median of the data being
     visualized. *(Hint: [Gemini](https://gemini.google.com/) or
     [CoPilot](https://copilot.microsoft.com/) can be very helpful.)*
-
-</div>
+:::
 
 ``` r
 loan50_small |>
@@ -972,7 +913,9 @@ loan50_small |>
   theme(axis.text.y = element_blank())  # Removes y-axis numbers
 ```
 
-    Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-    ℹ Please use `linewidth` instead.
+```         
+Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.
+```
 
 ![](2_KEY_EDA_Numerical_Data_files/figure-commonmark/bonus%20median%20line-1.png)

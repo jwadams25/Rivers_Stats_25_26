@@ -1,6 +1,6 @@
 ---
 title: "KEY Tutorial 3: EDA with Categorical Data"
-author: "YOUR NAME"
+author: "KEY"
 editor: visual
 format: 
   gfm:
@@ -31,7 +31,6 @@ library(tidyverse)
 library(openintro)
 library(janitor)
 library(knitr)
-library(kableExtra)
 library(gridExtra)
 library(readr)
 library(gt)
@@ -66,18 +65,28 @@ To learn how you can explore one categorical variable using R, you will use the 
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  Without running the code below, read the code and write down what the name of the data frame will be. (Be sure to type the name EXACTLY as it appears in the code)
+
+    immigration
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  What/Who are the observational units?
+
+    The observation units are 910 randomly sampled registered voters in Tampa, FL.
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 3.  How many observations are there? (You can now run the code to help answer this question.)
+
+    There are 910 observations.
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 4.  List the two variables included in this data frame. Be sure to list the name of the variable exactly as it appears and label the type of each variable.
+
+    `response`  - categorical
+
+    `political` - categorical
 :::
 
 ```{r Data}
@@ -115,8 +124,8 @@ Look at this data called `immigration` `AND THEN`
 
 ```{r build table with counts one var}
 
-________ |>
-  count(________)
+immigration |>
+  count(political)
 
 ```
 
@@ -142,6 +151,8 @@ That line of code is what you see in the gray space below. The **`mutate`** func
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 4.  What proportion of the respondents identified themselves as moderate?
+
+    0.3989 of the sample identified themselves as moderate.
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
@@ -149,9 +160,16 @@ That line of code is what you see in the gray space below. The **`mutate`** func
 :::
 
 ```{r table with prop}
-
-
+immigration |>
+  count(political) |>
   mutate(proportion = n / sum(n)) |>
+  gt()
+
+#bonus
+immigration |>
+  count(political) |>
+  mutate(proportion = n / sum(n),
+         percentage = proportion*100) |>
   gt()
 
 ```
@@ -188,9 +206,12 @@ We've talked a lot about clear and effective communication. One way to do that w
 
 ```{r arranging table}
 
-
-  arrange(desc(proportion))
-
+immigration |>
+  count(political) |>
+  mutate(proportion = n / sum(n)) |>
+  arrange(desc(proportion)) |>
+  gt()
+  
 ```
 
 ## 1.5: Build a Bar Plot
@@ -219,12 +240,14 @@ To answer this question...
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 3.  What are three design changes you'd like to make to this visualization to make it easier for someone to read?
+
+    I would like to add a title, improve the axes labels, change the colors of the bars to colors that represent the political ideologies, and arrange the bars from least to greatest.
 :::
 
 ```{r bar plot}
 
-NAME_OF_DATA_FRAME |>
-  ggplot(aes(x = CATEGORICAL_VARIABLE)) +
+immigration |>
+  ggplot(aes(x = political)) +
   geom_bar()
 
 ```
@@ -247,6 +270,8 @@ Let's begin by making the bars lay horizontally and adding in a few of the desig
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  The code chunk below will cause the bars to lay horizontally. It looks VERY similar to the code written in 1.5. What was changed in the code from 1.5 to make the bars lay horizontally?
+
+In the ggplot line, x = political was changed to y =.
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
@@ -257,9 +282,9 @@ Let's begin by making the bars lay horizontally and adding in a few of the desig
 immigration |>
   ggplot(aes(y = political)) +
   geom_bar() +
-  labs(x = "", 
+  labs(x = "Number of People", 
        y = "", 
-       title = "", 
+       title = "Political Affiliations of Registered Votes in Tampa, Florida", 
        subtitle = "Based on a random sample of 910 registred voters in Tampa, Florida") 
 ```
 
@@ -274,7 +299,9 @@ Putting political after `fill =` is a necessary step given how you will adjust t
 #### 1.6b: Tasks and Questions
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
-1.  Given the context of what we are visualizing, what colors would best fit each bar? Again, feel free to reference [this site for the names of the colors you want](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
+1.  Given the context of what we are visualizing, what colors would best fit each bar?
+
+    Red for conservative. Navy blue for liberal. Light grey for moderate.
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
@@ -293,7 +320,7 @@ immigration |>
        y = "", 
        title = "Political Affiliations of Registered Votes in Tampa, Florida", 
        subtitle = "Based on a random sample of 910 registred voters in Tampa, Florida") +
-  scale_fill_manual(values = c("CONSERVATIVE_COLOR","LIBERAL_COLOR", "MODERATE_COLOR"), guide = FALSE) +
+  scale_fill_manual(values = c("#BF0436","#023E73", "#7C8AA6"), guide = FALSE) +
   theme_minimal()
   
 ```
@@ -315,8 +342,8 @@ Let's start by recreating the table you saw on this homework problem. To get a r
 :::
 
 ```{r contingency counts}
-NAME_OF_DATA_FRAME |>
-  count(political, SECOND_VARIABLE) |>
+immigration |>
+  count(political, response) |>
   pivot_wider(names_from = political, values_from = n) |>
   adorn_totals(where = c("row", "col")) |>
   gt()
@@ -324,10 +351,14 @@ NAME_OF_DATA_FRAME |>
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  Copy the code you just wrote. Go to [Gemini](https://gemini.google.com/app). Paste the code and then type, "I am new to learning how to write R. You are an expert data scientist, teacher, and mentor. Provide me with an explanation of what each line of this code does?" Hit Enter. In this space, summarize what you learned.
+
+Answers may very.
 :::
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 3.  Given the results in the table and bar plot you produced in part 1 of this tutorial, why might we not want to compare the NUMBER of people within each political ideology that responded for each level of immigration?
+
+We may not want to compare the number of people in each political ideology that responded for each level of immigration because there is a large difference in the number of people that identified as liberal compared to the other two groups.
 :::
 
 ## 2.2: Contingency Table with Proportions.
@@ -344,9 +375,9 @@ In other words, you want to have a table that can help answer questions like, "W
 
 ```{r contingency proportion}
 
- NAME_OF_DATA_FRAME|>
-  count(FIRST_VARIABLE, SECOND_VARIABLE) |> 
-  group_by(FIRST_VARIABLE) |>
+ immigration|>
+  count(political, response) |> 
+  group_by(political) |>
   mutate(proportion = round(n / sum(n), digits = 4)) |> 
   select(-n) |>
   pivot_wider(names_from = political, values_from = proportion) |>
@@ -382,13 +413,14 @@ Call Mr. Adams over before going to the next step.
 
 ```{r standardized bar}
 
-NAME_OF_DATA_FRAME |>
-  ggplot(aes(y = FIRST_VARIABLE, fill = SECOND_VARIABLE)) +
+immigration |>
+  ggplot(aes(y = political, fill = response)) +
   geom_bar(position = "fill", color = "white") +
   labs(
-    title = "",
-    x = "",
-    y = "",
+    title = "What should workers who have entered the country \nillegally be allowed to or have to do?",
+    subtitle = "Based on a random sample of 910 registred voters in Tampa, Florida",
+    x = "Proportion",
+    y = "Political Ideology",
     fill = ""
   )
 
@@ -397,13 +429,34 @@ NAME_OF_DATA_FRAME |>
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 **Bonus:**
 
-If you are curious to see how to make a **stacked plot** with the same data, copy the code you just made into the code chunk below and change `"fill"` to `"stacked"` and then run the code.
+If you are curious to see how to make a **stacked plot** with the same data, copy the code you just made into the code chunk below and change `"fill"` to `"stack"` and then run the code.
 
-If you are curious to see how to make a **dodged plot** with the same data, copy the code you just made into the code chunk below andchange `"fill"` to `"dodge"` and then run the code.
+If you are curious to see how to make a **dodged plot** with the same data, copy the code you just made into the code chunk below and change `"fill"` to `"dodge"` and then run the code.
 :::
 
 ```{r stacked and dodged plots}
 
+immigration |>
+  ggplot(aes(y = political, fill = response)) +
+  geom_bar(position = "stack", color = "white") +
+  labs(
+    title = "What should workers who have entered the country \nillegally be allowed to or have to do?",
+    subtitle = "Based on a random sample of 910 registred voters in Tampa, Florida",
+    x = "Proportion",
+    y = "Political Ideology",
+    fill = ""
+  )
+
+immigration |>
+  ggplot(aes(y = political, fill = response)) +
+  geom_bar(position = "dodge", color = "white") +
+  labs(
+    title = "What should workers who have entered the country \nillegally be allowed to or have to do?",
+    subtitle = "Based on a random sample of 910 registred voters in Tampa, Florida",
+    x = "Proportion",
+    y = "Political Ideology",
+    fill = ""
+  )
 ```
 
 ### 2.3b Adjust standardized bar plot to include some data visualization best practices
@@ -430,6 +483,8 @@ Like before, we want the main takeaway to pop out to the viewer of this visualiz
 
 ::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 5.  After your brief celebration, write answer the question we started with in this part of the tutorial: "Do political ideology and views on immigration appear to be associated?"
+
+It does appear that political ideology and views on immigration are associated 57.7% of liberal respondents support apply for citizenship compared to just 15.32% of conservatives supporting apply for citizenship.
 :::
 
 ```{r final}
@@ -438,11 +493,12 @@ immigration |>
   ggplot(aes(y = fct_rev(fct_infreq(political)), fill = response)) +
   geom_bar(position = "fill", color = "white") +
   labs(
-    title = "",
-    subtitle = "",
-    x = "",
-    y = ""
+    title = "What should workers who have entered the country \nillegally be allowed to or have to do?",
+    subtitle = "Based on a random sample of 910 registred voters in Tampa, Florida",
+    x = "Proportion",
+    y = "Political Ideology",
+    fill = ""
   ) +
-  scale_fill_colorblind() +
+    scale_fill_manual(values = c("red", "lightgray", "lightgray","lightgray")) +
   theme_minimal()
 ```

@@ -14,11 +14,11 @@ format:
 
 Be sure to **read everything** as the structure of the tutorial is such that everything builds upon the items that came before it.
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 Any text highlighted in this red border will require you to either **edit and run a code chunk or just run a code chunk**.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 Any text highlighted in this blue border will **require you to answer a question**. You can type your response directly in the box with the blue border.
 :::
 
@@ -52,7 +52,7 @@ For this tutorial, we will use two packages: `tidyverse` and `openintro`.
 
 ### 1.1: Tasks and Questions
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.  Run the following code.
 :::
 
@@ -71,7 +71,7 @@ Again, the Name_of_the_Dataset is `loan50`.
 
 ### 2.1: Tasks and Questions
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.Run the following code to view the data.
 :::
 
@@ -79,7 +79,7 @@ Again, the Name_of_the_Dataset is `loan50`.
 view(loan50)
 ```
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 2.  Run the following code to get a glimpse of the data.
     -   This will show you the number of observations, the number of variables, the names of them, and the type of them.
 
@@ -96,37 +96,37 @@ glimpse(loan50)
 
 **Are you confused? I certainly would be!** Before diving into any exploration, you need to first be sure you understand the data
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 3.  Click this link <https://www.openintro.org/data/index.php?data=loan50> to learn more about this dataset.
 :::
 
 **For the next five questions, use information from the link you just read and the code your ran in questions 1 and 2 of this section.**
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 4.  From what platform was this data taken?
 
     This data was taken from Lending Club.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 5.  What does that platform do?
 
     Lending Club is an online platform this makes it possible for people to lend to one another.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 6.  What are the observational units in the `loan50` dataset?
 
     The observational units are loans given out on Lending Club.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 7.  How many observations are there?
 
     There are 50 loans in this data frame.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 8.  How many variables are there?
 
     There are 18 variables.
@@ -134,7 +134,7 @@ glimpse(loan50)
 
 ***\*\*Important Note: or the rest of this tutorial, you will work with a smaller version of this data set. We'll keep the 50 rows, but select 7 of the 18 variables we started with.***
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 9.  Run the code below makes this new and smaller data frame.
 :::
 
@@ -153,28 +153,28 @@ We will name a new data frame `loan50_small`. To do so we take the `loan50` data
 
 ### 2.2: Tasks and Questions
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  What is the name of the new data frame created in the lines of code above? Type the name EXACTLY how it appears above. (Hint: Copying and pasting is your friend! Also, if you double click on text it will highlight it for you. Give it a try!)
 
     loan50_small
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  When you are reading code and come across the symbol \|\>, which is called pipe, you should say, "And \_\_\_\_\_\_." *Tip: read the text just below the code chunk above to help you answer this question.*
 
 Then
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 3.  List all of the variables and state whether they are categorical or numerical? Type the names of the variables EXACTLY how they appear in the code above. *Hint: Copying and pasting is your friend!*
 
 `loan_amount` - numerical
 
-`interest_rate`  - numerical
+`interest_rate` - numerical
 
-`term`  - numerical
+`term` - numerical
 
-`grade`  - categorical
+`grade` - categorical
 
 `state` - categorical
 
@@ -217,17 +217,17 @@ loan50_small |>
 
 ### 3.1: Tasks and Questions
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.  Run the code above.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  What is a question that could be explored with the histogram created by the code above?
 
     What size loans tend to be given out on Lending Club?
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 3.  Describe the shape of the distribution and what that tells you about the loan amounts.
 
 The distribution of loans is skewed to the right, meaning that most loans are less than \$20,000 while a small number of loans are \$30,000 or more.
@@ -235,19 +235,19 @@ The distribution of loans is skewed to the right, meaning that most loans are le
 
 ### 3.2: Tasks and Questions
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  Write a statistical question that could be answered by creating a histogram using the data frame named `loan50_small`. *(use a different variable than the one used in 3.1)*
 
     What is the typical income of someone taking a loan out on Lending Club?\
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  What is the numerical variable you would need to use to create a histogram to help answer your question. Write the name EXACTLY as it appears in the data frame.
 
 total_income
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 3.  In the code below, replace `NAME_OF_DATA_FRAME` with loan50_small.
 :::
 
@@ -259,11 +259,11 @@ loan50_small |>
 
 ```
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 4.  In the code above, replace `NUMERICAL_VARIABLE` with the name you wrote in question 2 and then run the chunk of code.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 5.  Describe the distribution. Be sure to comment on the shape, center, and spread of the distribution.
 
 The interest rates on Lending Club loans tend to fall below 11%. The median interest appears to be 10%. The distribution in skewed to the right, which means that while many of interest rates are below 11%, there are a few loans that had interest rates of 20 to 28 percent.
@@ -273,17 +273,17 @@ The interest rates on Lending Club loans tend to fall below 11%. The median inte
 
 ### 4.1: Tasks and Questions
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.  Copy the code from above that was used to create a histogram showing the distribution of `loan_amount` and paste it into the gray section below question 3 of this section. The grey space has the label your first density curve.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  If you are about to change your visualization from a histogram to a density curve, will you need to change the variable listed on the x-axis?
 
 No, you will not need to change the variable on the x-axis as we are still going to explore the distribution of loan amounts.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 3.  In the code below, change geom_histogram() to geom_density() and then run the entire code chuck.
 :::
 
@@ -293,7 +293,7 @@ loan50_small |>
   geom_density()
 ```
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 4.  Bonus: True or False - You can create a density curve for a discrete numeric variable. (Explain your answer.)
 
 No. A density curve is continuous and therefore can only be used for numeric variables taht are continuous.
@@ -341,7 +341,7 @@ loan50_small |>
 
 ### 5.1: Tasks and Questions
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.  Write the code that would generate the summary statistics that could be used to help answer the questions **you wrote in 3.2**. *Hint: Copy and Paste is your friend!*
 :::
 
@@ -360,7 +360,7 @@ loan50_small |>
   )
 ```
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 2.  Copy and Paste the code for your histogram and your summary stats into the space below so that you have both your visualization and statistics in one location.
 
 3.  Run the code.
@@ -385,7 +385,7 @@ loan50_small |>
   )
 ```
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 4.  Describe the distribution of the numerical variable you choose when creating the data visualization. Be sure to comment on the shape, center, and spread of the distribution using statistical vocabulary you have learned in this class and the appropriate statistics you generated.
 
 The distribution of total income for folks getting loans on Lending Club is skewed to the right with total incomes tending to be around \$78,750. The middle 50% of total incomes range from \$60,000 to \$119,000. While 75% of folks getting a loan have incomes less that \$119,000, just 5 people have incomes over \$200,000.
@@ -403,7 +403,7 @@ Let's start by adding a title, subtitle, and labels to each axis of the *first h
 
 #### 6.1: Tasks and Questions
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.  Add a title, subtitle, and labels for each axis by typing in between each `""`.
 
 2.  Run the code chunk
@@ -431,23 +431,23 @@ In the code below, you will see that there is NOT a new layer. We added an **ele
 
 #### 6.2: Tasks and Questions
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  What bin width do you think will be best for the histogram showing the distribution of loan amounts? (see histogram and statistics)
 
 I would argue that a binwidth of 2500 would better suit this example.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 2.  Write the number you choose in question 1 after `binwidth =` in the code below.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 3.  Write in the title, subtitle, and labels for each axis into the code below.
 
 4.  Run the chunk of code.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 5.  After running it, adjust the binwidth to a value that you think creates the best possible histogram.
 :::
 
@@ -475,11 +475,11 @@ A good general rule, keep it simple!
 
 #### 6.3: Tasks and Questions
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.  Copy the code used to generate the histogram in 6.2 Tasks and Questions #5 and paste it into the gray space below.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 2.  When you have a continuous variable on the x-axis, you can use the following to adjust the scale:
 
 `scale_x_continuous(limits = c(min, max), breaks = seq(min, max, ticks))`
@@ -487,11 +487,11 @@ A good general rule, keep it simple!
 Edit the words min, max, and ticks in the code you see in the previous line. min = minimum value for x-axis max = maximum value for x-axis ticks = where you want the markings along the x-axis.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 3.  Put a `+` at the end of the code you pasted into the section below and then jump to the next line.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 4.  Paste the scale_x_continuous code you adjusted into the last row of the code chunk below.
 :::
 
@@ -517,15 +517,15 @@ Removing clutter is often a wise choice when designing a visualization. That is 
 
 #### 6.4: Tasks and Questions
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 1.  Copy and past the code from 6.3 into the gray space below.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 2.  At the end of the line with `scale_x_continuous` put a `+`
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 3.  On the next line write in `theme_minimal()` and then run the entire chunk of code.
 :::
 
@@ -550,11 +550,11 @@ loan50_small |>
 
 #### 6.5: Tasks and Questions
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  What are Lending Clubs 2 main corporate colors? Hint: Google is your friend.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #FF585D; border-radius: 5px;"}
 2.  Do a Google search for Lending Clubs corporate colors in hex code. Hex code is used to get specific colors and is formatted with \# followed by a combination of 6 letters and/or numbers. White for example is #ffffff.
     -   Copy one of the color hex codes into the `""` that come after `fill =` .
 
@@ -583,11 +583,11 @@ You've done a lot so far! Congrats! One by one, you adjusted various elements of
 
 #### 6.6: Tasks and Questions
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  Copy and paste the code you wrote for 3.2 question numbers 3 and 4 into the gray space below and then run the code.
 :::
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 2.  Adjust the following elements of the histogram:
 
 -   labels.
@@ -607,7 +607,7 @@ loan50_small |>
     x = "Total Income ($)",
     y = "Number of Loans"
   ) +
-  scale_x_continuous(limits = c(0, 400000), breaks = seq(0, 400000, 50000)) +
+  scale_x_continuous(limits = c(0, 450000), breaks = seq(0, 450000, 50000)) +
   theme_minimal()
 
 ```
@@ -616,7 +616,7 @@ loan50_small |>
 
 #### Bonus Tasks
 
-::: {style="color: black; background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
+::: {style="background-color: white; padding: 15px; border: 5px solid #006CB3; border-radius: 5px;"}
 1.  Turn the histogram you just made into a density curve.
 
 2.  Add a vertical line that represents the median of the data being visualized. *(Hint: [Gemini](https://gemini.google.com/) or [CoPilot](https://copilot.microsoft.com/) can be very helpful.)*
@@ -636,7 +636,7 @@ loan50_small |>
     x = "Total Income ($)",
     y = ""
   ) +
-  scale_x_continuous(limits = c(0, 400000), breaks = seq(0, 400000, 50000)) +
+  scale_x_continuous(limits = c(0, 450000), breaks = seq(0, 450000, 25000)) +
   theme_minimal() +
   theme(axis.text.y = element_blank())  # Removes y-axis numbers
 ```
